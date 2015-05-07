@@ -1,0 +1,12 @@
+[user]
+	name = Cloud
+	email = cloud@txthinking.com
+[core]
+	editor = vim
+	pager = less -r
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[github]
+	user = cloud@txthinking.com

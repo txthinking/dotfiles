@@ -1,0 +1,21 @@
+# Please check if all the paths in PATH are reachable, remove the ones that
+# are not.
+
+PATH=$HOME/bin:/usr/bin:/usr/ucb:/bin:/usr/local/bin:.
+MAILDIR=$HOME/.mail/inbox
+DEFAULT=$MAILDIR/
+LOGFILE=$HOME/.procmail/log
+LOCKFILE=$HOME/.procmail/.lockmail
+SENDMAIL=/usr/bin/msmtp
+#FORMAIL=/usr/bin/formail
+
+:0 c
+| msmtp -a ym@txthinking.com cloud@txthinking.com
+#| tee /tmp/mails
+
+:0
+* ^From.*thf@somewhere.someplace
+todd	# will go to $MAILDIR/todd MAILDIR=$HOME/.mail/inbox
+
+# Anything that has not been delivered by now will go to $DEFAULT
+# using LOCKFILE=$DEFAULT$LOCKEXT

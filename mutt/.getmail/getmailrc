@@ -1,0 +1,33 @@
+#pop3
+
+[options]
+verbose = 0
+delete = true
+message_log = ~/.getmail/log
+message_log_verbose = true
+
+[retriever]
+type = SimplePOP3Retriever
+#type = SimplePOP3SSLRetriever
+server = pop.txthinking.com
+username = test@txthinking.com
+password = PASSWORD
+
+[destination]
+#type = Maildir
+#path = ~/.mail/inbox/
+type = MDA_external
+path = /usr/bin/procmail
+
+#imap
+
+#[retriever]
+#type = SimpleIMAPRetriever
+#server = imap.txthinking.com
+#username = test@txthinking.com
+#password = PASSWORD
+
+#[destination]
+#type = Maildir
+#path = ~/.mail/inbox/
+

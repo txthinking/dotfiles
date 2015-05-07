@@ -1,0 +1,4 @@
+defscrollback 10000 #buffer line count
+termcapinfo xterm* ti@:te@ #鼠标滚动
+startup_message off #关闭欢迎消息
+altscreen on #关闭残留的内容

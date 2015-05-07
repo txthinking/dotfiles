@@ -1,0 +1,5 @@
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/%h-%p-%r
+    ControlPersist yes
+ServerAliveInterval 300

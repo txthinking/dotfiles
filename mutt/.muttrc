@@ -1,0 +1,29 @@
+set mbox_type=Maildir
+
+set folder=~/.mail/inbox
+set spoolfile=~/.mail/inbox
+
+set mbox=~/.mail/inbox
+set record=~/.mail/send
+set postponed=~/.mail/drafts
+
+set header_cache=~/.mail/.hcache
+
+set edit_headers=yes
+
+set realname='Cloud'
+set from='ms@txthinking.com'
+
+set sendmail="/usr/bin/msmtp"
+mailboxes inbox send drafts
+
+set charset="utf-8"
+set send_charset="utf-8"
+
+set alias_file=~/.muttrce
+source ~/.muttrce
+
+#set signature="~/.mail/.signature"
+
+subscribe txthinking@googlegroups.com
+
