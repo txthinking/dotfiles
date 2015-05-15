@@ -218,16 +218,20 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
+func! Format()
   exe "normal mz"
   %s/\s\+$//ge
+  %s/\t/    /ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-autocmd BufWrite *.php :call DeleteTrailingWS()
-autocmd BufWrite *.js :call DeleteTrailingWS()
-autocmd BufWrite *.go :call DeleteTrailingWS()
+autocmd BufWrite *.py :call Format()
+autocmd BufWrite *.coffee :call Format()
+autocmd BufWrite *.php :call Format()
+autocmd BufWrite *.js :call Format()
+autocmd BufWrite *.go :call Format()
+autocmd BufWrite *.java :call Format()
+autocmd BufWrite *.html :call Format()
+autocmd BufWrite *.sh :call Format()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
