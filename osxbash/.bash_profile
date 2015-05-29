@@ -1,4 +1,5 @@
 # bash && gun
+export LANG=en_US.UTF-8
 set -o vi
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
