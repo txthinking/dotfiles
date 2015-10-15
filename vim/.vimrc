@@ -1,4 +1,5 @@
 filetype off                " for Vundle
+
 let g:mapleader = ","
 let mapleader = ","
 
@@ -7,10 +8,10 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/The-NERD-tree'
-map <leader>d :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 let NERDTreeWinSize=24
+map <leader>d :NERDTreeToggle<CR>
 Plugin 'vim-scripts/taglist.vim'
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
 let Tlist_Auto_Highlight_Tag = 1
@@ -51,7 +52,7 @@ function! NERDTree_IsValid()
 endfunction
 
 Plugin 'vim-scripts/DoxygenToolkit.vim'
-let g:DoxygenToolkit_authorName="cloud@txthinking.com" 
+let g:DoxygenToolkit_authorName="cloud@txthinking.com"
 let g:DoxygenToolkit_licenseTag="The MIT License"
 let g:DoxygenToolkit_versionString="0.0.1"
 let g:DoxygenToolkit_briefTag_className="yes"
@@ -109,7 +110,7 @@ set cmdheight=1             " Height of the command bar
 set hid                     " A buffer becomes hidden when it is abandoned
 set backspace=eol,start,indent  " Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
-set smartcase               " When searching try to be smart about cases 
+set smartcase               " When searching try to be smart about cases
 set hlsearch                " Highlight search results
 set incsearch               " Makes search act like search in modern browsers
 set lazyredraw              " Don't redraw while executing macros (good performance config)
@@ -131,7 +132,7 @@ set noswapfile              " no backup
 set expandtab               " Use spaces instead of tabs
 set smarttab                " Be smart when using tabs ;)
 set shiftwidth=4            " 1 tab == 4 spaces
-set tabstop=4               
+set tabstop=4
 set softtabstop=4
 set lbr                     " Linebreak on 500 characters
 set tw=500
@@ -162,24 +163,24 @@ map j gj
 map k gk
 map <space> /
 map <c-space> ?
-map <silent> <leader><cr> :noh<cr> 
-map <C-j> <C-W>j                  
+map <silent> <leader><cr> :noh<cr>
+map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-map <leader>bd :Bclose<cr>        
-map <leader>ba :1,1000 bd!<cr>    
-map <leader>tn :tabnew<cr>        
+map <leader>bd :Bclose<cr>
+map <leader>ba :1,1000 bd!<cr>
+map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/  
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map 0 ^
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
 map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>    
+vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
@@ -189,15 +190,15 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm  
-map <leader>q :e ~/buffer<cr>       
-map <leader>pp :setlocal paste!<cr>  
-nmap <M-j> mz:m+<cr>`z          
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+map <leader>q :e ~/buffer<cr>
+map <leader>pp :setlocal paste!<cr>
+nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -205,10 +206,10 @@ catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+" autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal! g`\"" |
+"     \ endif
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
@@ -218,20 +219,17 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! Format()
+func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   %s/\t/    /ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call Format()
-autocmd BufWrite *.coffee :call Format()
-autocmd BufWrite *.php :call Format()
-autocmd BufWrite *.js :call Format()
-autocmd BufWrite *.go :call Format()
-autocmd BufWrite *.java :call Format()
-autocmd BufWrite *.html :call Format()
-autocmd BufWrite *.sh :call Format()
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.php :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.go :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
