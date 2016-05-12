@@ -141,37 +141,17 @@ ContactInfo 1234D/FFFFFFFF Random Person <nobody AT example dot com>
 #ExitPolicy accept *:119 # accept nntp as well as default exit policy
 #ExitPolicy reject *:* # middleman only -- no exits allowed
 
-#StrictNodes 0
+Socks5Proxy 127.0.0.1:1080
+StrictNodes 1
 ExitNodes {us}
 ExcludeNodes {cn},{mo},{hk}
 
 #ServerTransportPlugin obfs2,obfs3 exec /usr/bin/obfsproxy managed
-ClientTransportPlugin obfs2,obfs3 exec /usr/bin/obfsproxy managed
+#ClientTransportPlugin obfs2,obfs3 exec /usr/bin/obfsproxy managed
  
-UseBridges 1
-UpdateBridgesFromAuthority 1
-bridge 54.201.144.74:443
-bridge 85.214.29.213:443
-bridge obfs2 50.53.23.80:59367
-bridge obfs2 54.219.129.20:52176
-bridge obfs2 54.246.60.78:52176  
-bridge obfs2 72.44.45.80:52176
-bridge obfs2 192.36.27.187:2915  
-bridge obfs3 192.36.27.235:31248
-
-bridge [2001:470:7:6ef::2]:443
-bridge [2001:470:b5e2:1::20]:443
-bridge [2001:948:7:2::163]:6001
-bridge [2001:948:7:2::164]:6001
-bridge [2001:1620:f00:80ff::101]:443
-bridge [2001:4b88:10f1:42:290:96ff:fe07:3ef0]:8080
-bridge [2600:3c01::f03c:91ff:fe93:b8ee]:443
-bridge [2600:3c01::f03c:91ff:fe93:d525]:9001
-bridge [2604:2880::381b:91ef]:443
-bridge [2604:4100:0:1::1e30:d92f]:443
-bridge [2a01:28:ca:187::1:e]:443
-bridge [2a01:238:438e:4800:cd68:f1a9:6a18:e065]:5223
-bridge [2a01:e35:2f37:7b90:212:3fff:fe36:cac8]:443
-bridge [2a02:180:b:1::9ad3:becd]:443
-
-
+#UseBridges 1
+#UpdateBridgesFromAuthority 1
+#bridge 54.201.144.74:443
+#bridge obfs2 50.53.23.80:59367
+#bridge obfs3 192.36.27.235:31248
+#bridge [2001:470:7:6ef::2]:443

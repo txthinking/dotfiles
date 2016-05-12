@@ -4,6 +4,7 @@ let g:mapleader = ","
 let mapleader = ","
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-scripts/L9'
