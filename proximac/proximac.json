@@ -1,0 +1,7 @@
+{
+    "local_port":1080,
+    "local_address":"127.0.0.1",
+    "proximac_port":8558,
+    "VPN_mode":1,
+    "proxyapp_name":"shadowsocks-local"
+}
