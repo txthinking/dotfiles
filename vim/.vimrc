@@ -12,7 +12,7 @@ Plugin 'vim-scripts/The-NERD-tree'
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 let NERDTreeWinSize=24
-map <leader>d :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 Plugin 'vim-scripts/taglist.vim'
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
 let Tlist_Auto_Highlight_Tag = 1
@@ -92,12 +92,15 @@ Plugin 'fatih/vim-go'
 let g:go_play_open_browser = 0
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+map <leader>gd :GoDef<CR>
+map <leader>gml :GoMetaLinter<CR>
+map <leader>gp :GoPlay<CR>
 call vundle#end()
 
 set history=700             " Sets how many lines of history VIM has to remember
@@ -156,8 +159,7 @@ colorscheme desert
 syntax enable
 
 nmap <leader>w :w!<cr>
-
-map <F5> :!php -l %<CR>
+nmap <leader>q :q!<cr>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 map j gj
@@ -179,8 +181,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 map 0 ^
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
+map <leader>rg :Rgrep<cr><bs><bs><bs><bs><bs><bs><bs>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
@@ -192,7 +193,6 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-map <leader>q :e ~/buffer<cr>
 map <leader>pp :setlocal paste!<cr>
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -230,7 +230,6 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.php :call DeleteTrailingWS()
 autocmd BufWrite *.js :call DeleteTrailingWS()
-autocmd BufWrite *.go :call DeleteTrailingWS()
 
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
