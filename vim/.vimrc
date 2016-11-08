@@ -99,7 +99,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 map <leader>gd :GoDef<CR>
-map <leader>gml :GoMetaLinter<CR>
+map <leader>gm :GoMetaLinter<CR>
 map <leader>gp :GoPlay<CR>
 call vundle#end()
 
