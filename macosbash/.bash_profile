@@ -9,10 +9,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # git
-export GIT_SSH=/Users/tx/go/src/github.com/txthinking/snippet/local-scripts/socks5proxyssh
+export GIT_SSH=~/.socks5proxyssh
 
 # go
-export GOPATH=/Users/tx/go
+export GOPATH=~/go
 export PATH=$GOPATH/bin:$PATH
 
 # android
@@ -25,4 +25,3 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 
 # quick
 alias cdc='cd /Users/tx/go/src/github.com/txthinking'
-alias envoy='./vendor/bin/envoy'
