@@ -12,5 +12,7 @@
 	user = cloud@txthinking.com
 [http]
     proxy = socks5://127.0.0.1:1080
+    postBuffer = 104857600
 [https]
     proxy = socks5://127.0.0.1:1080
+    postBuffer = 104857600

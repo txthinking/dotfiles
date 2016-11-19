@@ -1,3 +1,4 @@
 [ui]
 username = Cloud <cloud@txthinking.com>
-
+[http_proxy]
+host=127.0.0.1:8123
