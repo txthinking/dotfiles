@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp .bash_profile ~/
-cp .bashrc ~/
+cp ./.bash_profile ~/
+cp ./.bashrc ~/

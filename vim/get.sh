@@ -6,4 +6,4 @@ curl https://raw.githubusercontent.com/txthinking/dotfiles/master/vim/use.sh -o 
 chmod +x /tmp/_/use.sh
 
 echo "Compile:"
-echo '    $ /tmp/_/use.sh'
+echo '    $ cd /tmp/_ && ./use.sh'
