@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get -y install mux
+sudo apt-get -y install tmux
 
 mkdir /tmp/_
 curl https://raw.githubusercontent.com/txthinking/dotfiles/master/tmux/.tmux.conf -o /tmp/_/.tmux.conf

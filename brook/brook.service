@@ -1,0 +1,13 @@
+[Unit]
+Description=Brook is a cross-platform(Linux/MacOS/Windows/Android/iOS) proxy software
+
+[Service]
+EnvironmentFile=/etc/default/brook
+ExecStart=/usr/bin/brook $OPTIONS
+KillMode=control-group
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+Alias=brook.service
