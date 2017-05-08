@@ -22,7 +22,11 @@ echo
 echo 'OR'
 echo
 echo 'Working with systemd:'
-echo '    Config file: /etc/default/brook'
+echo
+echo 'Realod units:'
+echo '    $ sudo systemctl daemon-reload'
+echo 'Config file:'
+echo '    $ vim /etc/default/brook'
 echo 'Start:'
 echo '    $ sudo systemctl start brook.service'
 echo 'Stop:'
