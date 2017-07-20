@@ -4,7 +4,6 @@ sudo apt-get -y install jq
 
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/sysctl/sysctl.conf -o /etc/sysctl.conf
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/limits/limits.conf -o /etc/security/limits.conf
-sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/systemd/system.conf -o /etc/systemd/system.conf
 
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook -o /etc/default/brook
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook.service -o /etc/systemd/system/brook.service
