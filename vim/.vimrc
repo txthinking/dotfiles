@@ -101,6 +101,7 @@ let g:go_highlight_build_constraints = 1
 map <leader>gd :GoDef<CR>
 map <leader>gm :GoMetaLinter<CR>
 map <leader>gp :GoPlay<CR>
+Plugin 'dart-lang/dart-vim-plugin'
 call vundle#end()
 
 set history=700             " Sets how many lines of history VIM has to remember
