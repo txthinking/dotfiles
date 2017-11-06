@@ -15,9 +15,9 @@ sudo chmod +x /usr/bin/brook
 echo 'Help:'
 echo '    $ brook -h'
 echo 'Run:'
-echo '    $ brook bkserver -l :9999 -p password -t 10'
+echo '    $ brook server -l :9999 -p password'
 echo 'Run in background:'
-echo '    $ nohup brook bkserver -l :9999 -p password -t 10 &'
+echo '    $ nohup brook server -l :9999 -p password &'
 echo
 echo 'OR'
 echo
