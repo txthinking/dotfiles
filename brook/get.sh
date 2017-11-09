@@ -2,9 +2,6 @@
 
 sudo apt-get -y install jq
 
-sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/sysctl/sysctl.conf -o /etc/sysctl.conf
-sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/limits/limits.conf -o /etc/security/limits.conf
-
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook -o /etc/default/brook
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook.service -o /etc/systemd/system/brook.service
 
@@ -26,7 +23,7 @@ echo
 echo 'Realod units:'
 echo '    $ sudo systemctl daemon-reload'
 echo 'Config file:'
-echo '    $ vim /etc/default/brook'
+echo '    $ sudo vim /etc/default/brook'
 echo 'Start:'
 echo '    $ sudo systemctl start brook.service'
 echo 'Stop:'
