@@ -2,7 +2,6 @@
 
 sudo apt-get -y install jq
 
-sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook -o /etc/default/brook
 sudo curl -s https://raw.githubusercontent.com/txthinking/dotfiles/master/brook/brook.service -o /etc/systemd/system/brook.service
 
 version=$(curl -s https://api.github.com/repos/txthinking/brook/releases/latest | jq -r .tag_name)
@@ -20,10 +19,10 @@ echo 'OR'
 echo
 echo 'Working with systemd:'
 echo
+echo 'Systemd file:'
+echo '    $ sudo vim /etc/systemd/system/brook.service'
 echo 'Realod units:'
 echo '    $ sudo systemctl daemon-reload'
-echo 'Config file:'
-echo '    $ sudo vim /etc/default/brook'
 echo 'Start:'
 echo '    $ sudo systemctl start brook.service'
 echo 'Stop:'
