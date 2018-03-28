@@ -58,9 +58,6 @@ Plugin 'vim-scripts/c.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 
-" An indent guides plugin displaying thin vertical lines.
-Plugin 'vim-scripts/indentLine.vim'
-
 Plugin 'fatih/vim-go'
 let g:go_play_open_browser = 0
 let g:go_fmt_fail_silently = 1
