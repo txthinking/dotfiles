@@ -11,12 +11,8 @@ set -o vi
 
 #export DISPLAY=:0.0
 export GOPATH=~/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
 
-alias d='sudo docker'
-alias bower='./node_modules/.bin/bower'
-alias gulp='./node_modules/.bin/gulp'
-alias browserify='./node_modules/.bin/browserify'
 alias cdc='cd ~/go/src/github.com/txthinking/'
 ix() {
 	local opts
@@ -43,49 +39,5 @@ ix() {
 	curl $opts -F f:1='<-' $* ix.io/$id
 }
 
-transfer() { 
-    # check arguments
-    if [ $# -eq 0 ]; 
-    then 
-        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
-        return 1
-    fi
+filelink(){ if [ $# -eq 0 ];then echo "$ filelink /path/to/file";return 1;fi;if [ ! -f $1 ];then echo "$1 does not exists";return 1;fi;echo $(curl --progress-bar -H "x-file-name: $(basename $1)" --data-binary @$1 https://filelink.io); }
 
-    # get temporarily filename, output is written to this file show progress can be showed
-    tmpfile=$( mktemp -t transferXXX )
-    
-    # upload stdin or file
-    file=$1
-
-    if tty -s; 
-    then 
-        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g') 
-
-        if [ ! -e $file ];
-        then
-            echo "File $file doesn't exists."
-            return 1
-        fi
-        
-        if [ -d $file ];
-        then
-            # zip directory and transfer
-            zipfile=$( mktemp -t transferXXX.zip )
-            cd $(dirname $file) && zip -r -q - $(basename $file) >> $zipfile
-            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
-            rm -f $zipfile
-        else
-            # transfer file
-            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
-        fi
-    else 
-        # transfer pipe
-        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
-    fi
-   
-    # cat output link
-    cat $tmpfile
-
-    # cleanup
-    rm -f $tmpfile
-}
