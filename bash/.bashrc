@@ -13,18 +13,6 @@ set -o vi
 export GOPATH=~/go
 export PATH=/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
 
-# mac
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
-if [ -d ~/flutter ]; then
-    export PATH=~/flutter/bin:$PATH
-fi
-
 alias cdc='cd ~/go/src/github.com/txthinking/'
 ix() {
 	local opts

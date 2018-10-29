@@ -7,6 +7,10 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
+export PATH="/usr/local/opt/curl/bin:$PATH"
+if [ -d ~/flutter ]; then
+    export PATH=~/flutter/bin:$PATH
+fi
 
 # git
 export GIT_SSH=~/.socks5proxyssh
@@ -48,52 +52,7 @@ ix() {
 	curl $opts -F f:1='<-' $* ix.io/$id
 }
 
-transfer() { 
-    # check arguments
-    if [ $# -eq 0 ]; 
-    then 
-        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
-        return 1
-    fi
-
-    # get temporarily filename, output is written to this file show progress can be showed
-    tmpfile=$( mktemp -t transferXXX )
-    
-    # upload stdin or file
-    file=$1
-
-    if tty -s; 
-    then 
-        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g') 
-
-        if [ ! -e $file ];
-        then
-            echo "File $file doesn't exists."
-            return 1
-        fi
-        
-        if [ -d $file ];
-        then
-            # zip directory and transfer
-            zipfile=$( mktemp -t transferXXX.zip )
-            cd $(dirname $file) && zip -r -q - $(basename $file) >> $zipfile
-            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
-            rm -f $zipfile
-        else
-            # transfer file
-            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
-        fi
-    else 
-        # transfer pipe
-        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
-    fi
-   
-    # cat output link
-    cat $tmpfile
-
-    # cleanup
-    rm -f $tmpfile
-}
+filelink(){ if [ $# -eq 0 ];then echo "$ filelink /path/to/file";return 1;fi;if [ ! -f $1 ];then echo "$1 does not exists";return 1;fi;echo $(curl --progress-bar -H "x-file-name: $(basename $1)" --data-binary @$1 https://filelink.io); }
 
 # quick
-alias cdc='cd /Users/tx/go/src/github.com/txthinking'
+alias cdc='cd ~/go/src/github.com/txthinking'
