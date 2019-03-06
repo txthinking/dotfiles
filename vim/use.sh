@@ -8,7 +8,7 @@ mkdir ~/.vim
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
 
 vim +PluginInstall +qall
 vim +GoInstallBinaries +qall
