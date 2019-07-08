@@ -4,7 +4,6 @@ filetype off                " for Vundle
 let g:mapleader = ","
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set rtp+=~/.fzf
 call vundle#begin()
 
@@ -26,15 +25,6 @@ map ; :Buffers<CR>
 Plugin 'mileszs/ack.vim'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-Plugin 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 Plugin 'tpope/vim-commentary'
 
 " Powerline is a statusline plugin for vim, and provides statuslines and prompts for several other applications, including zsh, bash, tmux, IPython, Awesome and Qtile.
@@ -46,7 +36,8 @@ Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'ntpeters/vim-better-whitespace'
 autocmd BufEnter * EnableStripWhitespaceOnSave
-" autocmd FileType <javascript,c,cpp,java,html,python,go,golang,dart> autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+
+Plugin 'ajh17/VimCompleteMe'
 
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/DrawIt'
@@ -55,8 +46,6 @@ Plugin 'vim-scripts/TeTrIs.vim'
 
 " C/C++ IDE -- Write and run programs. Insert statements, idioms, comments etc.
 Plugin 'vim-scripts/c.vim'
-
-Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'fatih/vim-go'
 let g:go_play_open_browser = 0
@@ -68,15 +57,21 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 map <leader>gd :GoDef<CR>
 map <leader>gm :GoMetaLinter<CR>
 map <leader>gp :GoPlay<CR>
 
 Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'posva/vim-vue'
+let dart_format_on_save = 1
 
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+
+Plugin 'prettier/vim-prettier'
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 call vundle#end()
 
