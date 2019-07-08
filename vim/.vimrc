@@ -66,6 +66,8 @@ map <leader>gp :GoPlay<CR>
 Plugin 'dart-lang/dart-vim-plugin'
 let dart_format_on_save = 1
 
+Plugin 'posva/vim-vue'
+
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
